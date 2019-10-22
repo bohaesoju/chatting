@@ -1,0 +1,54 @@
+.Header{
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  position: relative;
+  .listIcon{
+    position: absolute;
+    left:5px;
+    top:5px;
+  }
+  .peopleIcon{
+    position: absolute;
+    right:5px;
+    top:5px;
+  }
+}
+
+.FriendsListWrap{
+  li{
+    position: relative;
+    .profileImage{
+      width: 50px;
+      position: absolute;
+      left:5px;
+      top:5px;
+      border-radius: 50%;
+    }
+    .friendsNameWithContent{
+      padding-left: 100px;
+      padding-right: 100px;
+      .friendsName{
+        font-weight: bold;
+      }
+      .textContent{}
+    }
+    .dateWithAlarmNumbering{
+      position: absolute;
+      right:10px;
+      top:5px;
+    }
+  }
+}
+
+.ChattingRoom{
+  position: relative;
+  .chattingMessageWrap{
+    .rightSide{
+      text-align: right;
+    }
+  }
+  .writeMessageArea{
+    position: fixed;
+    bottom:10px;
+  }
+}

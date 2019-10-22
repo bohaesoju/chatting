@@ -12,7 +12,8 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, '../build'),
         index: 'index.html',
-        port: 9000
+        port: 9000,
+        historyApiFallback: true
     },
     module: {
         rules: [
@@ -48,7 +49,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.css', '.scss']
+        extensions: ['.jsx','.js', '.css', '.scss']
     },
     plugins: [
         new HtmlWebPackPlugin({
