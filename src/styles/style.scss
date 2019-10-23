@@ -50,5 +50,9 @@
   .writeMessageArea{
     position: fixed;
     bottom:10px;
+    .messageInput{
+      border-radius: 10px;
+      background: white;
+    }
   }
 }
