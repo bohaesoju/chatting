@@ -4,19 +4,32 @@ export const ChattingRoom = () => {
     return (
         <div className="ChattingRoom">
             <ul className="chattingMessageWrap">
-                <li className="leftSide">
-                    안녕?
+                <li className="leftSide talkMessage">
+                    <div className="about">
+                        안녕?
+                    </div>
                 </li>
-                <li className="leftSide">
-                    잘지내고 있니?
+                <li className="leftSide talkMessage">
+                    <div className="about">
+                        잘지내?
+                    </div>
                 </li>
-                <li className="rightSide">
-                    잘지내고 있어
+                <li className="rightSide talkMessage">
+                    <div className="about">
+                        오랜만이야
+                    </div>
+                </li>
+                <li className="leftSide talkMessage">
+                    <div className="about">
+                        보고싶다
+                    </div>
                 </li>
             </ul>
             <div className="writeMessageArea">
-                <input type="text" id="writeMessage" className="messageInput"/>
-                <label htmlFor="writeMessage">버튼</label>
+                <div className="InputandLabelWrap">
+                    <input type="text" placeholder="메시지를 입력하세요.." id="writeMessage" className="messageInput"/>
+                    <button className="writeMessage"></button>
+                </div>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import Info from './Info';
+import ChattingList from './ChattingList';
 
 export const rootReducer = combineReducers({
-    Info,
+    ChattingList,
 });
