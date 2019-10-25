@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CHATTINGLIST_REQUEST } from '../reducers/ChattingList';
 
 export const ListPage = () => {
-    const [allContents, setAllContents] = React.useState([]);
+    const [friendsListContent, setFriendsListContent] = React.useState([]);
     const { data, isFetchChattingList } = useSelector((state) => state.ChattingList);
     const dispatch = useDispatch();
     React.useEffect(() => {
@@ -13,14 +13,14 @@ export const ListPage = () => {
                 type: CHATTINGLIST_REQUEST,
             });
         }
-        setAllContents(data);
+        setFriendsListContent(data);
     }, [data]);
 
-    console.log(allContents);
+    console.log(Array.isArray(friendsListContent));
 
     return (
         <div className="ListPage">
-            <FriendsList />
+            <FriendsList friendsListContent={ friendsListContent } />
         </div>
     )
 };
