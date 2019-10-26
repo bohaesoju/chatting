@@ -40,5 +40,35 @@
       "date": "12.20",
       "alarm": 0
     }
+  ],
+  "addFileList": [
+    {
+      "id": 1,
+      "image": "./image/img-shot-1@3x.png"
+    },
+    {
+      "id": 2,
+      "image": "./image/img-shot-2@3x.png"
+    },
+    {
+      "id": 3,
+      "image": "./image/img-shot-3@3x.png"
+    },
+    {
+      "id": 4,
+      "image": "./image/img-shot-4@3x.png"
+    },
+    {
+      "id": 5,
+      "image": "./image/img-shot-5@3x.png"
+    },
+    {
+      "id": 6,
+      "image": "./image/img-shot-6@3x.png"
+    },
+    {
+      "id": 7,
+      "image": "./image/img-shot-7@3x.png"
+    }
   ]
 }

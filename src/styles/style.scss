@@ -2,9 +2,9 @@
   border-bottom: 1px solid #ccc;
   text-align: center;
   position: relative;
-  height: 44px;
   background: #5b36ac;
   padding-top: 13px;
+  padding-bottom: 11px;
   box-sizing: border-box;
   color: #fff;
   .HeaderCenterTitle{
@@ -29,6 +29,62 @@
       width: 24px;
     }
   }
+  .uploadIcon{
+    position: absolute;
+    right:50px;
+    top:9px;
+    .profileIcon{
+      width: 24px;
+      filter: none;
+      &:hover{
+        animation: imgClick 0.5s;
+      }
+    }
+  }
+  .addFileListWrap{
+    margin-top: 16px;
+    overflow-x:scroll;
+    padding-top: 2px;
+    padding-left: 10px;
+    ul{
+      white-space: nowrap;
+      height: 46px;
+      li{
+        display: inline-block;
+        margin-right: 10px;
+        animation: imgScale 0.5s;
+        img{
+          width: 46px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes imgClick {
+  from {
+    filter: none;
+  }
+  50% {
+    filter: invert(1);
+  }
+  to {
+    filter: none;
+  }
+}
+@keyframes imgScale {
+  from {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .FriendsListWrap{
@@ -37,12 +93,15 @@
     height: 74px;
     box-sizing: border-box;
     padding-top: 22px;
+    margin-left: 0px;
+    animation: friendsListRendering 0.5s;
     .profileImage{
       width: 56px;
       position: absolute;
       left:16px;
       top:12px;
       border-radius: 50%;
+      animation: friendsListImgRendering 0.7s;
     }
     .friendsNameWithContent{
       padding-left: 100px;
@@ -83,6 +142,23 @@
   }
 }
 
+@keyframes friendsListRendering {
+  from {
+    margin-left: -30px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+@keyframes friendsListImgRendering {
+  from {
+    margin-left: -30px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+
 .ChattingRoom{
   position: relative;
   .chattingMessageWrap{
@@ -96,6 +172,7 @@
       overflow: hidden;
       display: block;
       .about{
+        position: relative;
         padding: 12px;
         border-radius: 12px;
         //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
@@ -104,13 +181,16 @@
       }
     }
     .leftSide{
-
+      .about{
+        animation: aboutLeftRendering 0.6s;
+      }
     }
     .rightSide{
       .about{
         float: right;
         background-color: #5b36ac;
         color: #fff;
+        animation: aboutRightRendering 0.3s;
       }
     }
   }
@@ -145,7 +225,25 @@
         position: absolute;
         right:0px;
         top:0;
+        border: none;
       }
     }
+  }
+}
+
+@keyframes aboutLeftRendering {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 0;
+  }
+}
+@keyframes aboutRightRendering {
+  from {
+    right: -40px;
+  }
+  to {
+    right: 0;
   }
 }

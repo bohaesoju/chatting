@@ -16,8 +16,6 @@ export const ListPage = () => {
         setFriendsListContent(data);
     }, [data]);
 
-    console.log(Array.isArray(friendsListContent));
-
     return (
         <div className="ListPage">
             <FriendsList friendsListContent={ friendsListContent } />
