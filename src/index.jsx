@@ -13,9 +13,6 @@ import './styles/normalize.scss';
 
 const sagaMiddleWare = createSagaMiddleWare();
 
-const devTools =
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-
 const store = createStore(
     rootReducer,
     composeWithDevTools(applyMiddleware(sagaMiddleWare)));
