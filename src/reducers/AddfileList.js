@@ -1,10 +1,19 @@
 export const ADDFILELIST_REQUEST = 'ADDFILELIST_REQUEST';
 export const ADDFILELIST_SUCCESS = 'ADDFILELIST_SUCCESS';
 export const ADDFILELIST_FAILURE = 'ADDFILELIST_FAILURE';
+export const SEND_TO_IMAGE = 'SEND_TO_IMAGE';
+
+export const sendToImage = (i) => {
+    return {
+        type: SEND_TO_IMAGE,
+        index: i,
+    }
+};
 
 const initialState = {
     data: [],
-    isFetchAddfileList: false
+    isFetchAddfileList: false,
+    selectedImage: ''
 };
 
 const addfileList = (state = initialState, action) => {
@@ -25,6 +34,12 @@ const addfileList = (state = initialState, action) => {
                 ...state,
                 data: null,
                 isFetchAddfileList: false
+            };
+        case SEND_TO_IMAGE:
+            // state.selectedImage.push(state.data[action.index]);
+            return {
+                ...state,
+                selectedImage: '1'
             };
         default:
             return Object.assign({}, state);

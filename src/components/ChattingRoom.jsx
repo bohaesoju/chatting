@@ -1,6 +1,29 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { sendToText } from '../reducers/AddfileList';
 
 export const ChattingRoom = () => {
+    const [chattingMessage, setChattingMessage] = useState('');
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     console.log({
+    //         chattingMessage
+    //     });
+    // });
+
+    const onChattingMessage = e => {
+        setChattingMessage(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(chattingMessage);
+        // dispatch(sendToText({ id: 'test' }));
+    };
+
+    // const { handleSubmit } = this.props;
+
     return (
         <div className="ChattingRoom">
             <ul className="chattingMessageWrap">
@@ -42,8 +65,10 @@ export const ChattingRoom = () => {
             </ul>
             <div className="writeMessageArea">
                 <div className="InputandLabelWrap">
-                    <input type="text" placeholder="메시지를 입력하세요.." id="writeMessage" className="messageInput"/>
-                    <button className="writeMessage"></button>
+                    <form onSubmit={ handleSubmit }>
+                        <input type="text" placeholder="메시지를 입력하세요.." onChange={ onChattingMessage } id="writeMessage" className="messageInput"/>
+                        <button type="submit" className="writeMessage"></button>
+                    </form>
                 </div>
             </div>
         </div>

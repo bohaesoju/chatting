@@ -1,10 +1,25 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { sendToImage } from '../reducers/AddfileList';
+import {useDispatch} from "react-redux";
+
 
 export const Header = ({ addfileListContent }) => {
     let location = useLocation().pathname;
     const [addFileListWrap, setAddFileListWrap] = React.useState(false);
-    console.log(addFileListWrap);
+    const [picture, setPicture] = React.useState(false);
+    const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     console.log({
+    //         chattingMessage
+    //     });
+    // });
+
+    const clickToImage = () => {
+        dispatch(sendToImage({ id: 'test' }));
+    };
+
     return (
         <>
             { location === '/' ?
@@ -23,7 +38,7 @@ export const Header = ({ addfileListContent }) => {
                         <div className="addFileListWrap">
                             <ul>
                                 {addfileListContent.map((content) => (
-                                    <li key={ content.id }>
+                                    <li onClick={ clickToImage } key={ content.id }>
                                         <img src={require(`${ content.image }`)} alt=""/>
                                     </li>
                                 ))}
