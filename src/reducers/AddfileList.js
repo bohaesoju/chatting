@@ -13,7 +13,8 @@ export const sendToImage = (i) => {
 const initialState = {
     data: [],
     isFetchAddfileList: false,
-    selectedImage: ''
+    id: '',
+    image: ''
 };
 
 const addfileList = (state = initialState, action) => {
@@ -39,7 +40,7 @@ const addfileList = (state = initialState, action) => {
             // state.selectedImage.push(state.data[action.index]);
             return {
                 ...state,
-                selectedImage: '1'
+                image: action.index
             };
         default:
             return Object.assign({}, state);

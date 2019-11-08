@@ -16,8 +16,9 @@ export const Header = ({ addfileListContent }) => {
     //     });
     // });
 
-    const clickToImage = () => {
-        dispatch(sendToImage({ id: 'test' }));
+    const clickToImage = (content) => {
+        console.log(content);
+        dispatch(sendToImage(content.image));
     };
 
     return (
@@ -38,7 +39,7 @@ export const Header = ({ addfileListContent }) => {
                         <div className="addFileListWrap">
                             <ul>
                                 {addfileListContent.map((content) => (
-                                    <li onClick={ clickToImage } key={ content.id }>
+                                    <li onClick={ () => clickToImage(content) } key={ content.id }>
                                         <img src={require(`${ content.image }`)} alt=""/>
                                     </li>
                                 ))}

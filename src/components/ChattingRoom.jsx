@@ -6,11 +6,13 @@ import { sendToText } from '../reducers/AddfileList';
 export const ChattingRoom = () => {
     const [chattingMessage, setChattingMessage] = useState('');
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     console.log({
-    //         chattingMessage
-    //     });
-    // });
+    useEffect(() => {
+        if(!localStorage.getItem("chat")){
+            localStorage.setItem("chat", JSON.stringify([]));
+        }
+    }, []);
+
+    let chatHistory = JSON.parse(localStorage.getItem("chat"));
 
     const onChattingMessage = e => {
         setChattingMessage(e.target.value);
@@ -18,7 +20,23 @@ export const ChattingRoom = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(chattingMessage);
+        if(chattingMessage === ''){
+            alert('채팅 메시지를 입력해주세요!');
+        } else {
+            let message = {
+                text : chattingMessage,
+                dateTime : new Date().toLocaleTimeString() + " " + new Date().toDateString(),
+                src : "http://pickaface.net/includes/themes/clean/img/slide4.png"
+            };
+
+            chatHistory.push(message);
+            setChattingMessage('');
+
+            console.log(chatHistory, message)
+        }
+
+        // setChattingMessage('');
+        // console.log(chattingMessage);
         // dispatch(sendToText({ id: 'test' }));
     };
 
@@ -66,7 +84,13 @@ export const ChattingRoom = () => {
             <div className="writeMessageArea">
                 <div className="InputandLabelWrap">
                     <form onSubmit={ handleSubmit }>
-                        <input type="text" placeholder="메시지를 입력하세요.." onChange={ onChattingMessage } id="writeMessage" className="messageInput"/>
+                        <input type="text"
+                               placeholder="메시지를 입력하세요.."
+                               onChange={ onChattingMessage }
+                               id="writeMessage"
+                               className="messageInput"
+                               value={ chattingMessage }
+                        />
                         <button type="submit" className="writeMessage"></button>
                     </form>
                 </div>
