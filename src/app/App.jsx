@@ -18,6 +18,11 @@ const App = () => {
         }
         setAddfileListContent(data);
     }, [data]);
+
+    const handleSubmit = () => {
+        console.log('handle Submit')
+    };
+
     return (
         <div className="wrap">
             <Header addfileListContent={ addfileListContent } />
