@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 export const Header = ({ addfileListContent }) => {
     let location = useLocation().pathname;
     const [addFileListWrap, setAddFileListWrap] = React.useState(false);
-    console.log(addFileListWrap);
     return (
         <>
             { location === '/' ?
