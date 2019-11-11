@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { sendToImage } from '../reducers/AddfileList';
+import { sendToImage, sendToTextImage } from '../reducers/AddfileList';
 import {useDispatch} from "react-redux";
 
 
