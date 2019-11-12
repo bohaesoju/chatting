@@ -1,10 +1,14 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Maybe } from './Maybe';
 
 export const FriendsList = ({ friendsListContent }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return (
-        <>
-        { friendsListContent &&
+        <Maybe test={friendsListContent}>
             <ul className="FriendsListWrap">
                 {friendsListContent.map((content) => (
                     <li key={ content.id }>
@@ -23,7 +27,6 @@ export const FriendsList = ({ friendsListContent }) => {
                     </li>
                 ))}
             </ul>
-         }
-        </>
+        </Maybe>
     )
 };

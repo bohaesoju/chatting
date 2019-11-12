@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { sendToImage, sendToTextImage } from '../reducers/AddfileList';
-import {useDispatch} from "react-redux";
-
+import { useDispatch } from "react-redux";
 
 export const Header = ({ addfileListContent }) => {
     let location = useLocation().pathname;
     const [addFileListWrap, setAddFileListWrap] = React.useState(false);
 
-    const [picture, setPicture] = React.useState(false);
     const dispatch = useDispatch();
 
     const clickToImage = (content) => {
         dispatch(sendToImage(content.image));
+        setAddFileListWrap(false);
     };
 
     return (

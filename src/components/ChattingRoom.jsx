@@ -2,19 +2,16 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendToText } from '../reducers/AddfileList';
+import { Maybe } from './Maybe';
 
 export const ChattingRoom = () => {
     const [chattingMessage, setChattingMessage] = useState('');
     const { textImage } = useSelector((state) => state.AddfileList);
-    const { AddfileList2 } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('nnn')
-        // if(!localStorage.getItem("chat")){
-        //     localStorage.setItem("chat", JSON.stringify([]));
-        // }
-    }, [AddfileList2]);
+        window.scrollTo(0, document.body.scrollHeight);
+    }, [textImage.length]);
 
     const onChattingMessage = e => {
         setChattingMessage(e.target.value);
@@ -38,19 +35,21 @@ export const ChattingRoom = () => {
     return (
         <div className="ChattingRoom">
             <ul className="chattingMessageWrap">
-                { textImage.length > 0 && textImage.map((e, i) => (
-                    <li className="leftSide talkMessage" key={ i }>
-                        <p className='about'>
-                            { e.type === 'SEND_TO_IMAGE' ?
-                                <img
-                                    key={ i }
-                                    className="chattingRoomImage"
-                                    src={require(`${ e.index }`)}/> :
-                                <span>{ e.index }</span>
-                            }
-                        </p>
-                    </li>
-                ))}
+                <Maybe test={ textImage.length > 0 }>
+                    { textImage.map((e, i) => (
+                        <li className="leftSide talkMessage" key={ i }>
+                            <p className='about'>
+                                { e.type === 'SEND_TO_IMAGE' ?
+                                    <img
+                                        key={ i }
+                                        className="chattingRoomImage"
+                                        src={require(`${ e.index }`)}/> :
+                                    <span>{ e.index }</span>
+                                }
+                            </p>
+                        </li>
+                    ))}
+                </Maybe>
             </ul>
             <div className="writeMessageArea">
                 <div className="InputandLabelWrap">
