@@ -1,67 +1,72 @@
-.Header{
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  position: relative;
-  background: #5b36ac;
-  padding-top: 13px;
-  padding-bottom: 11px;
-  box-sizing: border-box;
-  color: #fff;
-  .HeaderCenterTitle{
-    a{
-      color: #fff;
-      font-size: 17px;
-    }
-  }
-  .listIcon{
-    position: absolute;
-    left:12px;
-    top:9px;
-    .menuIcon{
-      width: 24px;
-    }
-  }
-  .peopleIcon{
-    position: absolute;
-    right:12px;
-    top:9px;
-    .profileIcon{
-      width: 24px;
-    }
-  }
-  .uploadIcon{
-    position: absolute;
-    right:50px;
-    top:9px;
-    .profileIcon{
-      width: 24px;
-      filter: none;
-      &:hover{
-        animation: imgClick 0.5s;
+.HeaderWrap{
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 1;
+  .Header{
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    position: relative;
+    background: #5b36ac;
+    padding-top: 13px;
+    padding-bottom: 11px;
+    box-sizing: border-box;
+    color: #fff;
+    .HeaderCenterTitle{
+      a{
+        color: #fff;
+        font-size: 17px;
       }
     }
-  }
-  .addFileListWrap{
-    margin-top: 16px;
-    overflow-x:scroll;
-    padding-top: 2px;
-    padding-left: 10px;
-    ul{
-      white-space: nowrap;
-      height: 46px;
-      li{
-        display: inline-block;
-        margin-right: 10px;
-        animation: imgScale 0.5s;
-        img{
-          width: 46px;
-          border-radius: 5px;
+    .listIcon{
+      position: absolute;
+      left:12px;
+      top:9px;
+      .menuIcon{
+        width: 24px;
+      }
+    }
+    .peopleIcon{
+      position: absolute;
+      right:12px;
+      top:9px;
+      .profileIcon{
+        width: 24px;
+      }
+    }
+    .uploadIcon{
+      position: absolute;
+      right:50px;
+      top:9px;
+      .profileIcon{
+        width: 24px;
+        filter: none;
+        &:hover{
+          animation: imgClick 0.5s;
+        }
+      }
+    }
+    .addFileListWrap{
+      margin-top: 16px;
+      overflow-x:scroll;
+      padding-top: 2px;
+      padding-left: 10px;
+      ul{
+        white-space: nowrap;
+        height: 46px;
+        li{
+          display: inline-block;
+          margin-right: 10px;
+          animation: imgScale 0.5s;
+          img{
+            width: 46px;
+            border-radius: 5px;
+          }
         }
       }
     }
   }
 }
-
 @keyframes imgClick {
   from {
     filter: none;
@@ -87,56 +92,59 @@
   }
 }
 
-.FriendsListWrap{
-  li{
-    position: relative;
-    height: 74px;
-    box-sizing: border-box;
-    padding-top: 22px;
-    margin-left: 0px;
-    animation: friendsListRendering 0.5s;
-    .profileImage{
-      width: 56px;
-      position: absolute;
-      left:16px;
-      top:12px;
-      border-radius: 50%;
-      animation: friendsListImgRendering 0.7s;
-    }
-    .friendsNameWithContent{
-      padding-left: 100px;
-      padding-right: 100px;
-      .friendsName{
-        font-weight: bold;
-        font-size: 16px;
-        color: #464052;
-        margin-bottom: 3px;
-      }
-      .textContent{
-        font-size: 13px;
-        color: #a4a6b0;
-      }
-    }
-    .dateWithAlarmNumbering{
-      position: absolute;
-      right:16px;
-      top:22px;
-      .date{
-        font-size: 11px;
-        color: #363a42;
-        margin-bottom: 6px;
-      }
-      .alarmNumbering{
-        color: #fff;
-        width: 18px;
-        height: 18px;
-        line-height: 18px;
-        background: #5b36ac;
+.ListPage{
+  margin-top: 44px;
+  .FriendsListWrap{
+    li{
+      position: relative;
+      height: 74px;
+      box-sizing: border-box;
+      padding-top: 22px;
+      margin-left: 0px;
+      animation: friendsListRendering 0.5s;
+      .profileImage{
+        width: 56px;
+        position: absolute;
+        left:16px;
+        top:12px;
         border-radius: 50%;
-        text-align: center;
-        display: block;
-        font-size: 10px;
-        margin:0 auto;
+        animation: friendsListImgRendering 0.7s;
+      }
+      .friendsNameWithContent{
+        padding-left: 100px;
+        padding-right: 100px;
+        .friendsName{
+          font-weight: bold;
+          font-size: 16px;
+          color: #464052;
+          margin-bottom: 3px;
+        }
+        .textContent{
+          font-size: 13px;
+          color: #a4a6b0;
+        }
+      }
+      .dateWithAlarmNumbering{
+        position: absolute;
+        right:16px;
+        top:22px;
+        .date{
+          font-size: 11px;
+          color: #363a42;
+          margin-bottom: 6px;
+        }
+        .alarmNumbering{
+          color: #fff;
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+          background: #5b36ac;
+          border-radius: 50%;
+          text-align: center;
+          display: block;
+          font-size: 10px;
+          margin:0 auto;
+        }
       }
     }
   }
@@ -162,9 +170,10 @@
 .ChattingRoom{
   position: relative;
   background: #f9f9fb;
+  padding-bottom: 60px;
+  box-sizing: border-box;
   .chattingMessageWrap{
-    padding: 16px;
-    padding-bottom: 60px;
+    padding: 60px 16px 60px;
     width: 100%;
     //height: 100%;
     box-sizing: border-box;

@@ -11,19 +11,12 @@ export const Header = ({ addfileListContent }) => {
     const [picture, setPicture] = React.useState(false);
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     console.log({
-    //         chattingMessage
-    //     });
-    // });
-
     const clickToImage = (content) => {
-        console.log(content);
         dispatch(sendToImage(content.image));
     };
 
     return (
-        <>
+        <div className="HeaderWrap">
             { location === '/' ?
                 <div className="Header">
                     <div className="listIcon"><Link to="/"><img className="menuIcon" src={require('./image/side_menu_icon@3x.png')} alt=""/></Link></div>
@@ -49,6 +42,6 @@ export const Header = ({ addfileListContent }) => {
                     : ''}
                 </div>
             }
-        </>
+        </div>
     )
 };
