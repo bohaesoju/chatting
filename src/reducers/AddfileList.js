@@ -16,6 +16,7 @@ export const sendToText = (i) => {
     return {
         type: SEND_TO_TEXT,
         index: i,
+        id: new Date().getTime()
     }
 };
 
@@ -23,7 +24,8 @@ export const sendToTextImage = (i) => {
     return {
         type: SEND_TO_TEXTIMAGE,
         index: i,
-    }
+        id: new Date().getTime()
+}
 };
 
 const initialState = {

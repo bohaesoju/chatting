@@ -10,18 +10,8 @@ export const ChattingRoom = () => {
     const { textImage } = useSelector((state) => state.AddfileList);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, [textImage.length]);
-
     const onChattingMessage = e => {
         setChattingMessage(e.target.value);
-    };
-
-    const sendToTextMessage = () => {
-        dispatch(sendToText(chattingMessage));
-        setChattingMessage('');
-        window.scrollTo(0, document.body.scrollHeight);
     };
 
     const handleSubmit = (e) => {
@@ -33,10 +23,16 @@ export const ChattingRoom = () => {
         }
     };
 
+    const sendToTextMessage = () => {
+        dispatch(sendToText(chattingMessage));
+        setChattingMessage('');
+        window.scrollTo(0, document.body.scrollHeight);
+    };
+
     return (
         <div className="ChattingRoom">
             <ul className="chattingMessageWrap">
-                <Maybe test={ textImage.length > 0 }>
+                <Maybe test={ textImage.length }>
                     <ChattingList />
                 </Maybe>
             </ul>

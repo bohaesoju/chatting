@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import { Maybe } from './Maybe';
 
 export const FriendsList = ({ friendsListContent }) => {
+
     useEffect(() => {
         window.scrollTo(0, 0);
     });
+
     return (
-        <Maybe test={friendsListContent}>
+        <Maybe test={ friendsListContent }>
             <ul className="FriendsListWrap">
                 {friendsListContent.map((content) => (
                     <li key={ content.id }>
@@ -21,7 +23,9 @@ export const FriendsList = ({ friendsListContent }) => {
                             </div>
                             <div className="dateWithAlarmNumbering">
                                 <p className="date">{ content.date }</p>
-                                {content.alarm > 0 ? <p className="alarmNumbering">{ content.alarm }</p> : ''}
+                                <Maybe test={ content.alarm }>
+                                    <p className="alarmNumbering">{ content.alarm }</p>
+                                </Maybe>
                             </div>
                         </Link>
                     </li>

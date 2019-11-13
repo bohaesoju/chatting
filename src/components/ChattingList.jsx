@@ -12,14 +12,16 @@ export const ChattingList = () => {
 
     return (
         <>
-            { textImage.map((e, i) => (
-                <li className="leftSide talkMessage" key={ i }>
+            { textImage.map((e) => (
+                <li className="leftSide talkMessage" key={ e.id }>
                     <p className='about'>
-                        { e.type === SEND_TO_IMAGE ?
-                            <img
-                                className="chattingRoomImage"
-                                src={require(`${ e.index }`)}/> :
-                            <span>{ e.index }</span>
+                        { e.type === SEND_TO_IMAGE
+                            ?
+                                <img
+                                    className="chattingRoomImage"
+                                    src={require(`${ e.index }`)}/>
+                            :
+                                <span>{ e.index }</span>
                         }
                     </p>
                 </li>
