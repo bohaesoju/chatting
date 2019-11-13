@@ -3,29 +3,23 @@ export const ADDFILELIST_SUCCESS = 'ADDFILELIST_SUCCESS';
 export const ADDFILELIST_FAILURE = 'ADDFILELIST_FAILURE';
 export const SEND_TO_IMAGE = 'SEND_TO_IMAGE';
 export const SEND_TO_TEXT = 'SEND_TO_TEXT';
-export const SEND_TO_TEXTIMAGE = 'SEND_TO_TEXTIMAGE';
 
 export const sendToImage = (i) => {
+    console.log('image : ', i);
     return {
         type: SEND_TO_IMAGE,
         index: i,
+        id: new Date().getTime()
     }
 };
 
 export const sendToText = (i) => {
+    console.log('text : ', i)
     return {
         type: SEND_TO_TEXT,
         index: i,
         id: new Date().getTime()
     }
-};
-
-export const sendToTextImage = (i) => {
-    return {
-        type: SEND_TO_TEXTIMAGE,
-        index: i,
-        id: new Date().getTime()
-}
 };
 
 const initialState = {
@@ -58,7 +52,6 @@ const addfileList = (state = initialState, action) => {
             state.textImage.push(action);
             return {
                 ...state,
-                // image: action.index
             };
         case SEND_TO_TEXT:
             state.textImage.push(action);
