@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendToText } from '../reducers/AddfileList';
 import { Maybe } from './Maybe';
+import { ChattingList } from "./ChattingList";
 
 export const ChattingRoom = () => {
     const [chattingMessage, setChattingMessage] = useState('');
@@ -36,19 +37,7 @@ export const ChattingRoom = () => {
         <div className="ChattingRoom">
             <ul className="chattingMessageWrap">
                 <Maybe test={ textImage.length > 0 }>
-                    { textImage.map((e, i) => (
-                        <li className="leftSide talkMessage" key={ i }>
-                            <p className='about'>
-                                { e.type === 'SEND_TO_IMAGE' ?
-                                    <img
-                                        key={ i }
-                                        className="chattingRoomImage"
-                                        src={require(`${ e.index }`)}/> :
-                                    <span>{ e.index }</span>
-                                }
-                            </p>
-                        </li>
-                    ))}
+                    <ChattingList />
                 </Maybe>
             </ul>
             <div className="writeMessageArea">

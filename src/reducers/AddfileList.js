@@ -31,8 +31,6 @@ const initialState = {
     isFetchAddfileList: false,
     id: '',
     textImage: [],
-    image: [],
-    text: []
 };
 
 const addfileList = (state = initialState, action) => {
@@ -61,11 +59,6 @@ const addfileList = (state = initialState, action) => {
                 // image: action.index
             };
         case SEND_TO_TEXT:
-            state.textImage.push(action);
-            return {
-                ...state,
-            };
-        case SEND_TO_TEXTIMAGE:
             state.textImage.push(action);
             return {
                 ...state,
